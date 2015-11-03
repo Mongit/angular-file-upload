@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var busboy = require('connect-busboy');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -21,6 +22,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(busboy());
+// default options, immediately start reading from the request stream and parsing 
+app.use(busboy({inmediate: true}));
+
 
 app.use('/', routes);
 app.use('/users', users);

@@ -9,7 +9,7 @@
             $scope.errFile = errFiles && errFiles[0];
             if (file) {
                 file.upload = Upload.upload({
-                    url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+                    url: 'http://localhost:3000/',
                     data: {file: file}
                 });
 
