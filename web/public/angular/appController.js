@@ -1,7 +1,7 @@
 (function() {
     
     //inject angular file upload directives and services.
-    var app = angular.module('app', ['ngFileUpload']);
+    var app = angular.module('app');
 
     app.controller('MyCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
         $scope.uploadFiles = function(file, errFiles) {

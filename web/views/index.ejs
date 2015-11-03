@@ -4,32 +4,15 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
       
-      <script src="angular/lib/angular.min.js"></script>
-      <script src="angular/lib/angular-route.min.js"></script>
-      <script src="angular/lib/ng-file-upload-shim.min.js"></script>
-      <script src="angular/lib/ng-file-upload.min.js"></script>
-      
+      <script src="angular/lib/angular.js"></script>
+      <script src="angular/lib/angular-route.js"></script>
+      <script src="angular/lib/ng-file-upload-shim.js"></script>
+      <script src="angular/lib/ng-file-upload.js"></script>
+      <script src="angular/app.js"></script>
+      <script src="angular/appController.js"></script>
   </head>
-  <body ng-app="fileUpload" ng-controller="MyCtrl">
-          <h4>Upload on file select</h4>
-          <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
-                  accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
-              Select File</button>
-          <br><br>
-          File:
-          <div style="font:smaller">
-              {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-              <span class="progress" ng-show="f.progress >= 0">
-                  <div style="width:{{f.progress}}%"  
-                       ng-bind="f.progress + '%'"></div>
-              </span>
-          </div>     
-          {{errorMsg}}
-      
-      <div ng-view>
-      </div>
-      
-       <script src="angular/app.js"></script>
-       <script src="angular/appController.js"></script>
+  <body> 
+      <div ng-view="">
+      </div>       
   </body>
 </html>
