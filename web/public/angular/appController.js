@@ -14,6 +14,7 @@
                 });
 
                 file.upload.then(function (response) {
+                    alert("descarga exitosa dice angular");
                     $timeout(function () {
                         file.result = response.data;
                     });
