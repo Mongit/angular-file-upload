@@ -1,5 +1,4 @@
 (function() {
-    
     //inject angular file upload directives and services.
     var app = angular.module('app');
 
@@ -14,7 +13,7 @@
                 });
 
                 file.upload.then(function (response) {
-                    alert("descarga exitosa dice angular");
+                    alert("Descarga exitosa dice angular");
                     $timeout(function () {
                         file.result = response.data;
                     });
