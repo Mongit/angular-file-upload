@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Busboy = require('connect-busboy');
+var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,11 +9,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    console.log(req.busboy);
-
     req.busboy.on('file', function(fieldname, file, filename,  encoding, mimetype) {
+        file.on('data', function(data) {
+            fs.writeFile(__dirname + '/../public/shared/' + filename, data);
+        });//file on
+        file.on('end', function() {
+            console.log('File' + filename + ' is ended');
+        });//file on end
         
-        console.log('\n\n\nTHIS IS A FILE');
+    });
+    
+    req.busboy.on('finish', function() {
+        console.log('Busboy is finished');
+        res.send({data: 'img llego'});
     });
     
     req.pipe(req.busboy);
